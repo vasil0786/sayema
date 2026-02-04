@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Biwi ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      color: #4a2c2a;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 350px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      margin-bottom: 15px;
+    }
+
+    #text {
+      font-size: 16px;
+      min-height: 80px;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #ee9ca7;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e36b7f;
+    }
+
+    .hidden {
+      display: none;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>❤️ Meri Biwi ❤️</h1>
+    <div id="text"></div>
+
+    <button onclick="showSurprise()">Click for Surprise 💌</button>
+
+    <div id="surprise" class="hidden">
+      Tum sirf meri biwi nahi,  
+      meri dua ka qubool hona ho ❤️  
+    </div>
+  </div>
+
+  <script>
+    const message =
+      "Tum meri zindagi ka sabse khoobsurat hissa ho.\n" +
+      "Main har din Allah ka shukr ada karta hoon\n" +
+      "ke tum meri biwi ho ❤️";
+
+    let i = 0;
+    const speed = 50;
+
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("text").innerHTML +=
+          message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    function showSurprise() {
+      document.getElementById("surprise").style.display = "block";
+    }
+
+    typeWriter();
+  </script>
+
+</body>
+</html>
