@@ -1,103 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For My Biwi ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Future Wife</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Styles */
+        :root {
+            --primary-color: #d4af37; /* Gold */
+            --bg-color: #fdfbf7; /* Creamy White */
+            --text-color: #4a4a4a;
+            --heart-color: #ebb3b3;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      color: #4a2c2a;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 350px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
 
-    h1 {
-      margin-bottom: 15px;
-    }
+        /* Floating Background Hearts Animation */
+        .bg-heart {
+            position: absolute;
+            color: var(--heart-color);
+            opacity: 0.3;
+            animation: float Up 10s linear infinite;
+            z-index: 0;
+        }
 
-    #text {
-      font-size: 16px;
-      min-height: 80px;
-      line-height: 1.6;
-    }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
 
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 25px;
-      background: #ee9ca7;
-      color: white;
-      font-size: 15px;
-      cursor: pointer;
-    }
+        /* Main Card Container */
+        .card-container {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
 
-    button:hover {
-      background: #e36b7f;
-    }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--primary-color);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
 
-    .hidden {
-      display: none;
-      margin-top: 20px;
-      font-weight: bold;
-      color: #c0392b;
-    }
-  </style>
+        .message-box {
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        /* Utility class for animation */
+        p.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .decoration {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: var(--primary-color);
+        }
+
+        /* Bismillah Header */
+        .bismillah {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+    </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>❤️ Meri Biwi ❤️</h1>
-    <div id="text"></div>
+    <div id="bg-effects"></div>
 
-    <button onclick="showSurprise()">Click for Surprise 💌</button>
+    <div class="card-container">
+        <div class="bismillah">Bismillah</div>
+        
+        <div id="content-area">
+            <h1 id="title">To My Future</h1>
+            
+            <div class="message-box">
+                <p id="message-text" class="visible">Tap the button below...</p>
+            </div>
 
-    <div id="surprise" class="hidden">
-      Abhi sirf khwaab ho,
-      par yaqeen hai ek din
-      tum hi meri har subah aur har raat hogi 🌙☀️
+            <div class="decoration">✦</div>
+
+            <button class="btn" id="action-btn" onclick="nextSlide()">Open</button>
+        </div>
     </div>
-  </div>
 
-  <script>
-    const message =
-      "Tum meri zindagi ka sabse khoobsurat hissa ho.\n" +
-      "Main har din Allah ka shukr ada karta hoon\n" +
-      "ke tum meri biwi ho ❤️";
+    <script>
+        // Configuration
+        // You can change the messages here!
+        const slides = [
+            {
+                title: "Salam, My Love",
+                text: "I wanted to create something small to remind you of something big..."
+            },
+            {
+                title: "Alhamdulillah",
+                text: "Every single day, I thank Allah for crossing our paths. You are the answer to prayers I hadn't even spoken yet."
+            },
+            {
+                title: "My Promise",
+                text: "I promise to honor you, to respect you, and to walk this path of Deen and Dunya by your side."
+            },
+            {
+                title: "InshaAllah",
+                text: "May Allah bless our union, fill our home with barakah, and grant us a beautiful life together in Jannah."
+            },
+            {
+                title: "I Love You",
+                text: "I am counting the days until you are officially my wife. <br><br> ❤️"
+            }
+        ];
 
-    let i = 0;
-    const speed = 50;
+        let currentIndex = -1;
+        const titleEl = document.getElementById('title');
+        const textEl = document.getElementById('message-text');
+        const btnEl = document.getElementById('action-btn');
 
-    function typeWriter() {
-      if (i < message.length) {
-        document.getElementById("text").innerHTML +=
-          message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
-      }
-    }
+        function nextSlide() {
+            currentIndex++;
 
-    function showSurprise() {
-      document.getElementById("surprise").style.display = "block";
-    }
+            // Fade out current text
+            textEl.classList.remove('visible');
+            titleEl.style.opacity = '0';
+            
+            setTimeout(() => {
+                if (currentIndex < slides.length) {
+                    // Update content
+                    titleEl.innerText = slides[currentIndex].title;
+                    textEl.innerHTML = slides[currentIndex].text; // innerHTML allows <br> tags
+                    btnEl.innerText = (currentIndex === slides.length - 1) ? "Forever" : "Next";
+                    
+                    // Fade in
+                    titleEl.style.transition = "opacity 0.8s";
+                    titleEl.style.opacity = '1';
+                    textEl.classList.add('visible');
+                } else {
+                    // Reset to start if clicked at the end
+                    currentIndex = -1;
+                    nextSlide(); 
+                }
+            }, 500); // Wait for fade out
+        }
 
-    typeWriter();
-  </script>
+        // Generate Background Hearts
+        function createHearts() {
+            const container = document.getElementById('bg-effects');
+            const heartCount = 15;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('bg-heart');
+                heart.innerHTML = '❤';
+                
+                // Random positioning
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                
+                container.appendChild(heart);
+            }
+        }
 
+        // Initialize
+        createHearts();
+
+    </script>
 </body>
 </html>
